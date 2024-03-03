@@ -1,0 +1,44 @@
+
+<?php
+if ($orders->count() > 0) {
+    ?>
+   
+    <a href="#" class="nav-link" id="user" ><h4>Orders</h4></a>
+    <div id="userdiv">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+        <tr>
+            <th>Id</th>
+            <th>Customer Name</th>
+            <th>Customer Address</th>
+            <th>Zipcode</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <td colspan="3">Orders : <?php echo $orders->count(); ?></td>
+        </tr>
+        </tfoot>
+        <tbody>
+        <?php foreach ($orders as $order) { ?>
+            <tr>
+                <td><?php echo $order->order_id; ?></td>
+                <td><?php echo $order->cname; ?></td>
+                <td><?php echo $order->caddr ?></td>  
+                <td><?php echo $order->zipcode ?></td>  
+                <td><?php echo $order->product ?></td>  
+                <td><?php echo $order->quantity ?></td>  
+
+                
+        <?php } ?>
+        </tbody>
+    </table>
+    </div>
+
+    <?php
+}
+
+?>

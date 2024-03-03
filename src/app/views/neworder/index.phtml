@@ -1,0 +1,39 @@
+
+<table>
+       <h2>Place New Order</h2>
+       <?php  if($products->count()>0){
+           foreach ($products as $product){
+           ?>
+
+<?php echo $this->tag->form("neworder/placenew"); ?>
+    <p>
+       <tr> <td> <label for="name">Customer Name</label></td>
+           <td>  <input type="text" value="<?php  $user = $this->session->get('username');
+        echo $user; ?>" name="cname" ></td></tr>
+    </p>
+    <p>
+       <tr><td> <label for="descrition">Customer Address</label></td>
+       <td> <?php echo $this->tag->textArea("caddr"); ?></td></tr>
+    </p>
+
+    <p>
+     <tr> <td>  <label for="tags">Zipcode</label></td>
+       <td> <?php echo $this->tag->textField("zipcode"); ?></td></tr>
+    </p>
+    <p>
+      <tr> <td> <label for="price">Product</label></td>
+       <td> <input type="text" value="<?php  echo $product->product_name; ?>" name="product"></td></tr>
+    </p>
+    
+    <p>
+       <tr><td> <label for="stock">Quantity</label></td>
+      <td>  <?php echo $this->tag->textField("quantity"); ?></td></tr>
+    </p>
+    <p>
+      <tr> <td> <?php echo $this->tag->submitButton("Order");
+         ?></td></tr>
+    </p>
+
+</form>
+<?php }}?>
+</table>

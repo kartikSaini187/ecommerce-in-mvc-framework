@@ -1,0 +1,60 @@
+
+<?php
+if ($components->count() > 0) {
+    ?>
+   
+    <a href="#" class="nav-link" id="user" ><h4></h4></a>
+    <div id="userdiv" class="mb-5" >
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+        <tr>
+            
+            <th>Role</th>
+            <th>Controller</th>
+            <th>Action</th>
+            
+            
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            
+        </tr>
+        </tfoot>
+        <tbody>
+        <?php foreach ($components as $component) { ?>
+            <tr>
+               <form action="../component/changecomponent" method="POST">
+                <td><?php echo $component->role; ?></td>
+                <td><input type="text" value="<?php echo $component->controller; ?>" name="controller" ></td>  
+                <td><input type="text" value="<?php echo $component->action; ?>" name="action" ></td>  
+                <td><button type="submit" value="<?php echo $component->id; ?>" name="btnedit" >Change</button></td>  
+                </form> 
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+    </div><br>
+    <br>
+
+    <?php
+}
+
+
+
+?>
+
+
+<h2>Role</h2>
+
+<?php echo $this->tag->form("component/newrole"); ?>
+<p>
+ <label for="name"></label>
+ <?php echo $this->tag->textField("user"); ?>
+</p>
+
+<p>
+ <?php echo $this->tag->submitButton("ADD"); ?>
+</p>
+
+</form>

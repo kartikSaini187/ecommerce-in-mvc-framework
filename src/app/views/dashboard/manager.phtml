@@ -1,0 +1,43 @@
+<?php
+if ($managers->count() > 0) {
+    ?>
+   
+    <a href="#" class="nav-link" id="user" ><h4>Managers</h4></a>
+    <div id="userdiv">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            
+            
+            
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <td colspan="3">Total Managers: <?php echo $managers->count(); ?></td>
+        </tr>
+        </tfoot>
+        <tbody>
+        <?php foreach ($managers as $manager) { ?>
+            <tr>
+                <td><?php echo $manager->id; ?></td>
+                <td><?php echo $manager->name; ?></td>
+                <td><?php echo $manager->email; ?></td> 
+                <td><?php echo $manager->status; ?></td>  
+                <td><form method="POST" action="../dashboard/changestatus?bearer=<?php echo $_GET['bearer']; ?>" ><button class="btn-btn-warning" value="<?php echo $manager->id; ?>" name="btnChangestatus" >Change Status</button></form></td>
+               
+                
+                
+        <?php } ?>
+        </tbody>
+    </table>
+    </div>
+
+    <?php
+}
+
+?>

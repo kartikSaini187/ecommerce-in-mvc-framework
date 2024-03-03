@@ -1,0 +1,49 @@
+<?php
+if ($carts->count() > 0) {
+    ?>
+   
+    <a href="#" class="nav-link" id="user" ><h4>Your Cart</h4></a>
+    <div id="userdiv">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+        <tr>
+            
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            
+            
+        </tr>
+        </thead>
+        
+        <tbody>
+
+        <?php $grandtotal =0;
+        foreach ($carts as $cart) {
+            $grandtotal += $cart->price;
+             ?>
+            <tr>
+               
+                <td><?php echo $cart->product_name; ?></td>
+                <td><form method="POST" action="addtocart/changequantity?bearer=<?php echo $_GET['bearer'];?>" ><input type="number" class="text-center border-0" value="<?php echo $cart->quantity; ?>" name="quantity" onchange='this.form.submit()'><input  type="hidden" name="cartid" value="<?php echo $cart->id; ?>" ></form></td>  
+                <td><?php echo $cart->price; ?></td>  
+                <td><form method="POST" action="addtocart/remove?bearer=<?php echo $_GET['bearer'];?>" ><button class="btn btn-danger" value="<?php echo $cart->id; ?>" name="btnRemove" >X</button></form></td> 
+ 
+                
+        <?php } ?>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="3">Grand Total : <?php echo $grandtotal; ?></td>
+        </tr>
+        <tr><td><a class="btn btn-success"  href="checkout?bearer=<?php echo $_GET['bearer'];?>">Checkout</a></td></tr>
+        </tfoot>
+    </table>
+    </div>
+
+    <?php
+}else{
+    echo "nothing is in your cart";
+}
+
+?>

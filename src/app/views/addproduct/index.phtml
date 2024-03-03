@@ -1,0 +1,33 @@
+<table>
+<h2>Add New Product</h2>
+
+
+<form method="POST" action="addproduct/add?bearer=<?php echo $_GET['bearer']; ?>">
+    <p>
+    <tr>  <td>  <label for="name">Name</label></td>
+    <td>    <?php echo $this->tag->textField("name"); ?></td></tr>
+    </p>
+    <p>
+     <tr> <td>  <label for="name">Category</label></td>
+      <td><?php echo $this->tag->textField("category"); ?></td> </tr>
+    </p>
+    <p>
+       <tr> <td><label for="price">Price</label></td>
+     <td><?php echo $this->tag->textField("price"); ?></td></tr>
+    </p>
+
+    <p>
+      <tr> <td> <label for="stock">Stock</label></td>
+       <td><?php echo $this->tag->textField("stock");?></td></tr>
+    </p>
+    <p>
+      <tr> <td> <label for="stock">Image</label></td>
+       <td><input type="file" name="image"></td></tr>
+    </p>
+    <p>
+       <tr><td> <?php echo $this->tag->submitButton("Add"); ?></td></tr>
+        
+    </p>
+
+</form>
+</table>

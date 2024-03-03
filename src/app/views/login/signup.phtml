@@ -1,0 +1,42 @@
+<table>
+<h2>Sign up using this form</h2>
+
+<?php echo $this->tag->form("../login/register"); ?>
+
+    <p>
+       <tr><td> <label for="name">Name</label></td>
+       <td> <?php echo $this->tag->textField("name"); ?></td></tr>
+    </p>
+
+    <p>
+       <tr><td> <label for="email">E-Mail</label></td>
+      <td>  <?php echo $this->tag->textField("email"); ?></td></tr>
+    </p>
+    <p>
+       <tr><td> <label for="price">Role</label></td>
+      <td>  <?php echo $this->tag->selectStatic(
+        "role",
+       [
+        "customer"=>"Customer",
+        "guest"=>"Guest",
+        "manager" => "Manager",
+        "admin" => "Admin",
+        ]
+       ); ?></td>
+    </p>
+    <p>
+       <tr><td> <label for="password">Password</label></td>
+       <td> <?php echo $this->tag->textField("password"); ?></td></tr>
+    </p>
+    
+    <p>
+       <tr><td> <?php echo $this->tag->submitButton("Register"); ?></td>
+       <td> <?php echo $this->tag->linkTo(
+    'login',
+    'Login Here!'
+); ?></td>
+    </p>
+
+
+</form>
+</table>
